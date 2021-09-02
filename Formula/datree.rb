@@ -14,7 +14,7 @@ class Datree < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fca46a8f5d4d01ec05ab2b9ec942e8e7e72d7581104b7de51c1a7390c5e91aa"
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.16" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/datreeio/datree/cmd.CliVersion=#{version}"), "-tags", "main"
