@@ -4,7 +4,7 @@ class Datree < Formula
   url "https://github.com/datreeio/datree/archive/0.14.20.tar.gz"
   sha256 "df1fd0c087a03f72bd9524b26b56eb974f07310b844637a8b7e3424bd2da5cd0"
   license "Apache-2.0"
-  head "https://github.com/datreeio/datree.git", branch: "staging"
+  head "https://github.com/datreeio/datree.git", branch: "main"
 
   livecheck do
     url :stable
