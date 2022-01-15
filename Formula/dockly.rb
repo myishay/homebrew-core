@@ -19,10 +19,7 @@ class Dockly < Formula
   end
 
   test do
-    require "pty"
-    r, _, pid = PTY.spawn "#{bin}/dockly"
-    sleep 1
-    Process.kill("TERM", pid)
-    assert_match(/Dockly/, r.read)
-  end
+    error_output = shell_output("#{bin}/dockly -s invalid-docker.sockd 2>&1", 255)
+    assert_match "connect ENOENT invalid-docker.sockd", error_output
+  end  
 end
