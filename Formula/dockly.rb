@@ -19,6 +19,10 @@ class Dockly < Formula
   end
 
   test do
-    assert_match "dockly #{version} by Liran Tal<liran.tal@gmail.com>", shell_output("#{bin}/dockly --version")
+    require "pty"
+    r, _, pid = PTY.spawn "#{bin}/dockly"
+    sleep 1
+    Process.kill("TERM", pid)
+    assert_match(/Dockly/, r.read)
   end
 end
