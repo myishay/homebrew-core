@@ -21,5 +21,5 @@ class Dockly < Formula
   test do
     error_output = shell_output("#{bin}/dockly -s invalid-docker.sockd 2>&1", 255)
     assert_match "connect ENOENT invalid-docker.sockd", error_output
-  end  
+  end
 end
